@@ -1,0 +1,39 @@
+//nsq commands for command line
+
+1. status
+curl "http://127.0.0.1:4151/stats"
+
+2. topic create
+curl -X POST "http://127.0.0.1:4151/topic/create?topic=name"
+
+3. topic delete
+curl -X POST "http://127.0.0.1:4151/topic/delete?topic=name"
+
+4. channel create on the existing topic
+curl -X POST "http://127.0.0.1:4151/channel/create?topic=Joe&channel=MyTestChannel"
+
+5. existing channel delete 
+curl -X POST "http://127.0.0.1:4151/channel/delete?topic=name&channel=name"
+
+6. empty all the queued message
+curl -X POST "http://127.0.0.1:4151/topic/empty?topic=name"
+
+7. empty all the queued message in channel
+curl -X POST "http://127.0.0.1:4151/channel/empty?topic=name&channel=name"
+
+8. pause topic message flow to the channels
+curl -X POST "http://127.0.0.1:4151/topic/pause?topic=name"
+
+9. unpause topic
+curl -X POST "http://127.0.0.1:4151/topic/unpause?topic=name"
+
+10. channel pause
+curl -X POST "http://127.0.0.1:4151/channel/pause?topic=name&channel=name"
+
+11. publish message to the topic
+curl -d "<message>" "http://127.0.0.1:4151/pub?topic=Joe"
+
+12. publish multiple message to the topic
+curl -d "<message>\n<message>\n<message>" "http://127.0.0.1:4151/mpub?topic=name"
+
+
