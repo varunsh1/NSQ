@@ -1,6 +1,6 @@
 # NSQ
 
-* First, run these commands to start the consumer  
+* First, run these commands to start the consumer
 
     ```bash
   go build
